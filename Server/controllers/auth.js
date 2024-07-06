@@ -22,3 +22,26 @@ export const signup=async (req,res)=>{
    
 
 }
+export const Login=async (req,res)=>{
+    try{
+        const{
+            email,
+            password,
+        }=req.body;
+        const user= await User.findOne({email:email}  )
+        if(!email){
+            res.status(400).json({message:"User not exisit ,Signup first"})
+        }
+        const isMatch=await bcrypt.compare(password,user.password);
+        if(!isMatch){
+            res.status(400).json({message:"Invalid Password"})
+        }
+        delete user.password;
+        res.status(200).json({ user });
+    }
+    catch(err){
+        res.status(500).json({error:err.message});
+    }
+   
+
+}

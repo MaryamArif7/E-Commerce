@@ -2,16 +2,17 @@ import React, { useState } from "react";
 import plogo from "../../assets/plogo.svg";
 import phone from "../../assets/phone.svg";
 import arrowRight from "../../assets/arrowRight.svg";
-const Home = () => {
-  const [isMultiDropdownOpen, setMultiDropdownOpen] = useState(false);
-  const [isDoubleDropdownOpen, setDoubleDropdownOpen] = useState(false);
 
-  const toggleMultiDropdown = () => {
-    setMultiDropdownOpen(!isMultiDropdownOpen);
-  };
+const Home = () => {
+  const [isDoubleDropdownOpen, setDoubleDropdownOpen] = useState(false);
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
 
   const toggleDoubleDropdown = () => {
     setDoubleDropdownOpen(!isDoubleDropdownOpen);
+  };
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!isDropdownOpen);
   };
 
   return (
@@ -19,16 +20,18 @@ const Home = () => {
       <div>
         <div>
           <ul className="py-2 text-sm text-black">
-            <li>
+            <li className="relative">
               <button
-                id="doubleDropdownButton"
-                onClick={toggleDoubleDropdown}
+                id="DropdownButton"
+                data-dropdown-toggle="doubleDropdown"
+                data-dropdown-placement="right-start"
+                onClick={toggleDropdown}
                 type="button"
                 className="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-200 "
               >
                 Men Fashion
                 <svg
-                  className="w-2.5 h-2.5 ms-3 rtl:rotate-180"
+                  className={`w-2.5 h-2.5 ms-3 ${isDropdownOpen ? 'rotate-90' : ''}`}
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -46,34 +49,33 @@ const Home = () => {
 
               <div
                 id="doubleDropdown"
-                className={`relative right-0 top-0 z-10 ${
-                  isDoubleDropdownOpen ? "" : "hidden"
-                } bg-white divide-y divide-gray-100 rounded-lg shadow w-44`}
+                className={`absolute left-full top-0 z-10 ${isDropdownOpen ? "" : "hidden"}
+                   bg-white divide-y divide-gray-100 rounded-lg shadow w-44`}
               >
-                <ul className="py-2 text-sm text-black ">
-                  <li> 
+                <ul className="py-2 text-sm text-black">
+                  <li>
                     <a href="#" className="block px-4 py-2 hover:bg-gray-200">
                       Shirts
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="block px-4 py-2 hover:bg-gray-200 ">
+                    <a href="#" className="block px-4 py-2 hover:bg-gray-200">
                       Pants
                     </a>
                   </li>
                 </ul>
               </div>
             </li>
-            <li>
+            <li className="relative">
               <button
                 id="doubleDropdownButton"
                 onClick={toggleDoubleDropdown}
                 type="button"
                 className="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-200 "
               >
-                women fashion
+                Women Fashion
                 <svg
-                  className="w-2.5 h-2.5 ms-3 rtl:rotate-180"
+                  className={`w-2.5 h-2.5 ms-3 ${isDoubleDropdownOpen ? 'rotate-90' : ''}`}
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -91,18 +93,16 @@ const Home = () => {
 
               <div
                 id="doubleDropdown"
-                className={`relative right-0 top-0 z-10 ${
-                  isDoubleDropdownOpen ? "" : "hidden"
-                } bg-white divide-y divide-gray-100 rounded-lg shadow w-44`}
+                className={`absolute left-full top-0 z-10 ${isDoubleDropdownOpen ? "" : "hidden"} bg-white divide-y divide-gray-100 rounded-lg shadow w-44`}
               >
-                <ul className="py-2 text-sm text-black ">
+                <ul className="py-2 text-sm text-black">
                   <li>
                     <a href="#" className="block px-4 py-2 hover:bg-gray-200">
-                      Shirts
+                      tops
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="block px-4 py-2 hover:bg-gray-200 ">
+                    <a href="#" className="block px-4 py-2 hover:bg-gray-200">
                       Jeans
                     </a>
                   </li>
@@ -151,8 +151,7 @@ const Home = () => {
         </div>
 
         <div>
-          <img src={phone}
-           />
+          <img src={phone} alt="Phone" />
         </div>
       </div>
     </div>

@@ -34,7 +34,7 @@ const Navbar = () => {
       </div>
       <div className='flex items-center border rounded-lg overflow-hidden '>
         <input className='py-2 px-4 bg-transparent flex-grow focus:outline-none' type='text'placeholder='What are you looking for ' />
-        <img  className ="  w-4 h-4 cursor-pointer" src={serach} />
+        <img  className ="  w-4 h-4 " src={serach} />
       </div>
       <div className='flex gap-5 '>
         <img src={wish} />

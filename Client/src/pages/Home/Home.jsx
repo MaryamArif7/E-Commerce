@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import plogo from "../../assets/plogo.svg";
 import phone from "../../assets/phone.svg";
 import arrowRight from "../../assets/arrowRight.svg";
+import Sale from "../Sale/Sale"
 
 const Home = () => {
   const [isDoubleDropdownOpen, setDoubleDropdownOpen] = useState(false);
@@ -16,6 +17,7 @@ const Home = () => {
   };
 
   return (
+    <>
     <div className="flex justify-between mt-8 ml-16 mr-16">
       <div>
         <div>
@@ -132,8 +134,8 @@ const Home = () => {
           </ul>
         </div>
       </div>
-      <div className="bg-black flex ">
-        <div className="mt-10 ml-24">
+      <div className="bg-black flex w-3/4 ">
+        <div className="mt-10 ml-16">
           <div className="flex  ">
             <img src={plogo} alt="Logo" height={56} width={56} />
             <h6 className="text-white mt-5 ml-10 ">iPhone 14 Series</h6>
@@ -155,6 +157,8 @@ const Home = () => {
         </div>
       </div>
     </div>
+    <Sale />
+    </>
   );
 };
 

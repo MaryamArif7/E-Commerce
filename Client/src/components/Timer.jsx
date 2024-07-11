@@ -25,25 +25,30 @@ const CountdownTimer = ({ endTime }) => {
     }, 1000);
 
     return () => clearTimeout(timer);
-  });
+  }, [timeLeft]);
 
-  const timerComponents = [];
 
-  Object.keys(timeLeft).forEach((interval) => {
-    if (!timeLeft[interval]) {
-      return;
-    }
-
-    timerComponents.push(
-      <span key={interval} className="mx-1">
-        {timeLeft[interval]} {interval}{" "}
-      </span>
-    );
-  });
+ 
 
   return (
     <div className="">
-      {timerComponents.length ? timerComponents : <span>Sale Ended!</span>}
+      {Object.keys(timeLeft).length ? (
+        <>
+          
+          <div className='text-2xl -ml-7 flex font-extrabold gap-5'>
+        <h1>{`${timeLeft.days || '00'}`}</h1>
+        <span className='text-orange-600'>:</span>
+        <h1>{`${timeLeft.hours || '00'}`}</h1>
+        <span className='text-orange-600'>:</span>
+        <h1>{`${timeLeft.minutes|| '00'}`}</h1>
+        <span className='text-orange-600'>:</span>
+        <h1>{`${timeLeft.seconds || '00'}`}</h1>
+                 
+          </div>
+        </>
+      ) : (
+        <span>Sale Ended!</span>
+      )}
     </div>
   );
 };

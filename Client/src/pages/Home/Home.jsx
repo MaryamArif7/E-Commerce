@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import plogo from "../../assets/plogo.svg";
 import phone from "../../assets/phone.svg";
 import arrowRight from "../../assets/arrowRight.svg";
 import Sale from "../Sale/Sale"
+import Categorys from "../category/Category";
+import Bigger from "../bigger/bigger";
+import Explore from "../Explore/Explore";
 
 const Home = () => {
   const [isDoubleDropdownOpen, setDoubleDropdownOpen] = useState(false);
@@ -18,7 +21,7 @@ const Home = () => {
 
   return (
     <>
-    <div className="flex justify-between mt-8 ml-16 mr-16">
+    <div className="flex justify-between mt-8 ml-16 mr-36">
       <div>
         <div>
           <ul className="py-2 text-sm text-black">
@@ -158,6 +161,9 @@ const Home = () => {
       </div>
     </div>
     <Sale />
+    <Categorys />
+    <Bigger/>
+    <Explore />
     </>
   );
 };

@@ -37,11 +37,11 @@ const CountdownTimer = ({ endTime }) => {
           
           <div className='text-2xl -ml-7 flex font-extrabold gap-5'>
         <h1>{`${timeLeft.days || '00'}`}</h1>
-        <span className='text-orange-600'>:</span>
+        <span className='text-red-600'>:</span>
         <h1>{`${timeLeft.hours || '00'}`}</h1>
-        <span className='text-orange-600'>:</span>
+        <span className='text-red-600'>:</span>
         <h1>{`${timeLeft.minutes|| '00'}`}</h1>
-        <span className='text-orange-600'>:</span>
+        <span className='text-red-600'>:</span>
         <h1>{`${timeLeft.seconds || '00'}`}</h1>
                  
           </div>

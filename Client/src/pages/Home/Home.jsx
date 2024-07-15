@@ -6,6 +6,8 @@ import Sale from "../Sale/Sale"
 import Categorys from "../category/Category";
 import Bigger from "../bigger/bigger";
 import Explore from "../Explore/Explore";
+import Arrival from "../../components/Arrival";
+import Support from "../../components/Support";
 
 const Home = () => {
   const [isDoubleDropdownOpen, setDoubleDropdownOpen] = useState(false);
@@ -21,7 +23,7 @@ const Home = () => {
 
   return (
     <>
-    <div className="flex justify-between mt-8 ml-16 mr-36">
+    <div className="flex justify-between mt-8 ml-36 mr-36   ">
       <div>
         <div>
           <ul className="py-2 text-sm text-black">
@@ -55,7 +57,7 @@ const Home = () => {
               <div
                 id="doubleDropdown"
                 className={`absolute left-full top-0 z-10 ${isDropdownOpen ? "" : "hidden"}
-                   bg-white divide-y divide-gray-100 rounded-lg shadow w-44`}
+                   bg-white divide-y divide-gray-100 rounded-lg shadow w-28`}
               >
                 <ul className="py-2 text-sm text-black">
                   <li>
@@ -98,7 +100,7 @@ const Home = () => {
 
               <div
                 id="doubleDropdown"
-                className={`absolute left-full top-0 z-10 ${isDoubleDropdownOpen ? "" : "hidden"} bg-white divide-y divide-gray-100 rounded-lg shadow w-44`}
+                className={`absolute left-full top-0 z-10 ${isDoubleDropdownOpen ? "" : "hidden"} bg-white divide-y divide-gray-100 rounded-lg shadow w-28`}
               >
                 <ul className="py-2 text-sm text-black">
                   <li>
@@ -164,6 +166,8 @@ const Home = () => {
     <Categorys />
     <Bigger/>
     <Explore />
+    <Arrival />
+    <Support />
     </>
   );
 };

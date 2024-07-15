@@ -10,7 +10,7 @@ const Navbar = () => {
   return (
     <>
     <nav>
-    <div className='flex justify-around pt-10 mr-28'>
+    <div className='flex justify-around pt-10 mr-28 ml-28'>
     <div>
         <img src={logo} alt="" />
       </div>

@@ -10,7 +10,7 @@ const Explore = () => {
 
   return (
     <>
-      <div className="mt-10 ml-16 mr-36">
+      <div className="mt-10 ml-36 mr-36">
         <div className="flex gap-5">
           <img src={rectangle} alt="" />
           <h1 className="text-red-700">Our Products</h1>
@@ -29,7 +29,7 @@ const Explore = () => {
             </div>
           </div>
         </div>
-        <div className="mt-16  grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 sm:gap-4 gap-14">
+        <div className="mt-10  grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 sm:gap-4 gap-14">
           {Explores.map((product) => (
             <ExploreCard key={product.name} {...product} />
           ))}

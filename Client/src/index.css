@@ -11,6 +11,8 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
   cursor:pointer;
+  font-family: 'Times New Roman', Times, serif;
+
 }
 @layer components {
   .max-container {
@@ -53,6 +55,6 @@
   }
 
   .info-text {
-    @apply font-montserrat text-slate-gray text-lg leading-7;
+    @apply text-slate-gray text-lg leading-7;
   }
 }

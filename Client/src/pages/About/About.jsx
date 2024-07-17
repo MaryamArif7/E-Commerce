@@ -89,7 +89,15 @@ const About = () => {
           <h1 className="text-center font-bold">Min Yoongi</h1>
           <h1 className="text-center font-bold">President</h1>
         </div>
+        <div>
+          <div className="bg-gray-300">
+            <img src={men1} alt="" />
+          </div>
+          <h1 className="text-center font-bold">Min Yoongi</h1>
+          <h1 className="text-center font-bold">President</h1>
+        </div>
       </div>
+      
       <Support />/
     </>
   );

@@ -1,20 +1,41 @@
-import jwt from 'jsonwebtoken';
-export const verifyToken=async(req,res,next)=>{
-    try{
-        let token =req
-        .header("Authorization");
-        if(!token){
-            res.status(403).send("acess denied");
-        }
-        if(token.startsWith("Bearer ")){
-            token=token.slice(7,token.length).timeLeft();
-        }
-const verified=jwt.verifiy(token,process.env.JWT_SECRET);
-req.user=verified;
-next();
-    }
-    catch(err){
+const jwt = require('jsonwebtoken')
 
-        res.status(500).json({error:err.message})
+async function authToken(req,res,next){
+    try{
+        const token = req.cookies?.token
+
+        console.log("token",token)
+        if(!token){
+            return res.status(200).json({
+                message : "Please Login...!",
+                error : true,
+                success : false
+            })
+        }
+
+        jwt.verify(token, process.env.TOKEN_SECRET_KEY, function(err, decoded) {
+            console.log(err)
+            console.log("decoded",decoded)
+            
+            if(err){
+                console.log("error auth", err)
+            }
+
+            req.userId = decoded?._id
+
+            next()
+        });
+
+
+    }catch(err){
+        res.status(400).json({
+            message : err.message || err,
+            data : [],
+            error : true,
+            success : false
+        })
     }
 }
+
+
+module.exports = authToken

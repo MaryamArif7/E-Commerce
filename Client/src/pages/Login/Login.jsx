@@ -1,16 +1,16 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
-import Sign from "../../assets/Sign.svg";
-import google from "../../assets/google.svg";
-
+import { useDispatch } from "react-redux";
+import { authSuccess } from '../../store/auth';
+import Sign from "../../assets/Sign.svg"
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const navigateTo = useNavigate();
+  const dispatch = useDispatch();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -18,15 +18,27 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/auth/login",
+        "http://localhost:5000/auth/login",
         { email, password },
         { withCredentials: true, headers: { "Content-Type": "application/json" } }
       );
 
-      setEmail("");
-      setPassword("");
-      setError("");
-      navigateTo("/");
+      if (response.data) {
+        const { user, token } = response.data;
+
+        dispatch(authSuccess({
+          user,
+          token,
+        }));
+
+        // Store the token in localStorage
+        localStorage.setItem('token', token);
+
+        setEmail("");
+        setPassword("");
+        setError("");
+        navigateTo("/");
+      }
     } catch (error) {
       setError('Error logging user: ' + error.message);
     } finally {
@@ -67,7 +79,6 @@ const Login = () => {
               >
                 {loading ? 'Logging in...' : 'Login'}
               </button>
-           
             </div>
           </form>
         </div>

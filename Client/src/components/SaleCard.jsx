@@ -23,7 +23,7 @@ const SaleCard = ({ name, imgURL, price, off, discount, rating }) => {
           </h1>
           <div className="">
             <div className="flex gap-3">
-              <p className="text-red-700">
+              <p className="text-red-600">
                 {discount}
               </p>
               <p className="line-through">

@@ -16,7 +16,7 @@ const Categorys = () => {
         <div className="mt-2 gap-20">
           <div className="ml-72 flex gap-5"></div>
           <div className="flex gap-48">
-            <h1 className="text-black font-bold text-2xl">Browse Categories</h1>
+            <h1 className="text-black font-bold text-2xl">Browse Caegories</h1>
             <div className="flex ml-auto gap-3 mr-28">
               <img src={arrowr} alt="Arrow Right" />
               <img src={arrowl} alt="Arrow Left" />

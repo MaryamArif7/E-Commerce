@@ -53,7 +53,7 @@ const Login = () => {
       </div>
       <div className='mt-0'>
         <h1 className="text-3xl">Login To Exclusiive</h1>
-        <h4 className='mt-4 text-xl'>Enter Your Details below</h4>
+        <h4 className='mt-4 text-xl'>Enter Youur Details below</h4>
         {error && <p className="text-red-500 mt-2">{error}</p>}
         <div className='mt-10'>
           <form onSubmit={handleLogin}>
